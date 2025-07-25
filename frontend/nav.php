@@ -1,12 +1,10 @@
 <?php
-if (!isset($_SESSION)) session_start();
-require_once('../backend/db.php');
+$response = file_get_contents('http://ucst.projecthub.backend/api/get_user_data.php');
+$data = json_decode($response, true);
 
-$user = null;
-if (isset($_SESSION['user_id'])) {
-    $stmt = $pdo->prepare("SELECT username FROM users WHERE id = ?");
-    $stmt->execute([$_SESSION['user_id']]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+// Display data
+foreach ($data as $user) {
+    echo "<p>" . htmlspecialchars($user['username']) . "</p>";
 }
 ?>
 <!-- nav.php -->
