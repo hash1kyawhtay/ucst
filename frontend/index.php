@@ -30,43 +30,10 @@
 <body>
 
 <?php include('nav.php');
-require_once('../backend/db.php');
 
-$sql = "SELECT p.*, u.username AS aa 
-        FROM projects p 
-        JOIN users u ON p.created_by = u.id 
-        ORDER BY p.created_at DESC";
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-$projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$query = $_GET['query'] ?? '';
-$language = $_GET['language'] ?? '';
-$year = $_GET['year'] ?? '';
-
-$sql = "SELECT * FROM projects WHERE 1=1";
-$params = [];
-
-if ($query) {
-    $sql .= " AND title LIKE ?";
-    $params[] = "%$query%";
-}
-if ($language) {
-    $sql .= " AND tags = ?";
-    $params[] = $language;
-}
-if ($year) {
-    $sql .= " AND year = ?";
-    $params[] = $year;
-}
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute($params);
-$projects = $stmt->fetchAll();
+// Display data
 
 ?>
-
 <div class="container my-4">
   <form method="GET" action="index.php">
     <div class="row g-3 align-items-end">
@@ -112,6 +79,14 @@ $projects = $stmt->fetchAll();
     </div>
   </form>
 </div>
+<?php
+$response = file_get_contents('http://ucst.projecthub.backend/get_project.php');
+$data = json_decode($response, true);
+if (empty($data)) {
+    echo "<div class='container text-center my-5'><h4>No projects found.</h4></div>";
+    exit;
+}
+foreach ($data as $project) {
 
 <div class="container py-5">
     <div class="row g-4">
@@ -131,7 +106,7 @@ $projects = $stmt->fetchAll();
                     </div>
                 </a>
             </div>
-        <?php endforeach; ?>
+        <?php endforeach; }?>
     </div>
 </div>
 </body>
