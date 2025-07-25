@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once('../backend/auth.php');
+require_once('http://ucst.projecthub.backend/auth.php');
 
 // Fetch contributors (users) from DB
-require_once('../backend/db.php'); // Makes $pdo available
+require_once('http://ucst.projecthub.backend/db.php'); // Makes $pdo available
 
 $contributorOptions = "";
 

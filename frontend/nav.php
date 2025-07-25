@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION)) session_start();
-require_once('../backend/db.php');
+require_once('http://ucst.projecthub.backend/db.php');
 
 $user = null;
 if (isset($_SESSION['user_id'])) {
@@ -40,7 +40,7 @@ if (isset($_SESSION['user_id'])) {
         <li><a class="dropdown-item" href="profile.php">Profile</a></li>
         <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item text-danger" href="../backend/logout.php">Logout</a></li>
+        <li><a class="dropdown-item text-danger" href="http://ucst.projecthub.backend/logout.php">Logout</a></li>
       </ul>
     </div>
   <?php else: ?>

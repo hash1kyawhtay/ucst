@@ -1,5 +1,5 @@
 <?php
-require_once('../backend/db.php');
+require_once('http://ucst.projecthub.backend/db.php');
 
 if (!isset($_GET['id'])) {
     echo "No project ID provided.";

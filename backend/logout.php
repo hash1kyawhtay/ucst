@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header("Location: ../frontend/index.php");
+require_once('http://ucst.projecthub/index.php');
 exit();

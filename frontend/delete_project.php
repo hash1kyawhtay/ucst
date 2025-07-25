@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
 
     $project_id = $_POST['id'];
     
-require_once('../backend/db.php'); // Makes $conn available
+require_once('http://ucst.projecthub.backend/db.php'); // Makes $conn available
 
     // Verify ownership before deleting
     $stmt = $pdo->prepare("SELECT * FROM projects WHERE project_id = :pid AND created_by = :uid");

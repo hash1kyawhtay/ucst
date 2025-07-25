@@ -1,8 +1,7 @@
 <?php
 session_start();
-require_once('../backend/auth.php');
-require_once('../backend/db.php');
-
+require_once('http://ucst.projecthub.backend/auth.php');
+require_once('http://ucst.projecthub.backend/db.php');
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -38,7 +37,7 @@ $c = htmlspecialchars($user['created_at']); // Sanitize username for output
   <?php unset($_SESSION['change_error']); ?>
 <?php endif; ?>
 
-<form method="POST" action="../backend/change_password.php">
+<form method="POST" action="http://ucst.projecthub.backend/change_password.php">
   <div class="mb-3">
     <label for="current_password" class="form-label">Current Password</label>
     <input type="password" class="form-control" id="current_password" name="current_password" required>

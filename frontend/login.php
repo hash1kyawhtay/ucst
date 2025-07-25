@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../backend/db.php');
+require_once('http://ucst.projecthub.backend/db.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_email'])) {
     $email = trim($_POST['login_email']);
