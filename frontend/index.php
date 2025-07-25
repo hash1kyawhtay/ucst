@@ -87,7 +87,7 @@ if (empty($data)) {
     exit;
 }
 foreach ($data as $project) {
-
+?>
 <div class="container py-5">
     <div class="row g-4">
         <?php foreach ($projects as $project): ?>
