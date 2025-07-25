@@ -1,5 +1,5 @@
 <?php
-$response = file_get_contents('http://ucst.projecthub.backend/api/get_user_data.php');
+$response = file_get_contents('http://ucst.projecthub.backend/get_user_data.php');
 $data = json_decode($response, true);
 
 // Display data
