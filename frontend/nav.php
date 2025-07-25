@@ -1,12 +1,4 @@
-<?php
-$response = file_get_contents('http://ucst.projecthub.backend/get_user_data.php');
-$data = json_decode($response, true);
 
-// Display data
-foreach ($data as $user) {
-    echo "<p>" . htmlspecialchars($user['username']) . "</p>";
-}
-?>
 <!-- nav.php -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -24,26 +16,7 @@ foreach ($data as $user) {
     </ul>
 
   <div class="d-flex align-items-center gap-3">
-  <?php if ($user): ?>
-    <!-- + Add Project button -->
-    <a href="addproject.php" class="btn btn-outline-light fw-semibold">+ Add Project</a>
-
-    <!-- Avatar dropdown -->
-    <div class="dropdown">
-      <button class="btn btn-light rounded-circle d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" style="width: 40px; height: 40px;">
-        <span class="fw-bold text-primary text-uppercase"><?= substr($user['username'], 0, 1) ?></span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end">
-        <li><h6 class="dropdown-header"><?= htmlspecialchars($user['username']) ?></h6></li>
-        <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-        <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item text-danger" href="../backend/logout.php">Logout</a></li>
-      </ul>
-    </div>
-  <?php else: ?>
     <a href="login.php" class="btn btn-outline-light">Login</a>
-  <?php endif; ?>
 </div>
 
 </nav>
