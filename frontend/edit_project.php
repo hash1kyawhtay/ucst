@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once('http://ucst.projecthub.backend/auth.php');
-require_once('http://ucst.projecthub.backend/db.php');
+require_once('../backend/auth.php');
+require_once('../backend/db.php');
 
 $project_id = $_GET['id'] ?? null;
 $user_id = $_SESSION['user_id'] ?? null;

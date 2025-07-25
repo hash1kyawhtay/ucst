@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('http://ucst.projecthub.backend/db.php');
+require_once('../backend/db.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['signup_username']);

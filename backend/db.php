@@ -1,5 +1,5 @@
 <?php
-$host = "mysql-service";
+$host = "localhost";
 $dbname = "ucst";
 $username = "root";
 $password = "root"; // or "" depending on your MAMP settings

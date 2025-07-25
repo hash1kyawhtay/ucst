@@ -30,7 +30,7 @@
 <body>
 
 <?php include('nav.php');
-require_once('http://ucst.projecthub.backend/db.php');
+require_once('../backend/db.php');
 
 $sql = "SELECT p.*, u.username AS aa 
         FROM projects p 
