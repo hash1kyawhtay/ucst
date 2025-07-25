@@ -27,4 +27,4 @@ jobs:
       with:
         context: ./frontend
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/ucstf:latest

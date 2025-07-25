@@ -1,0 +1,7 @@
+resources:
+  - frontend.yaml
+  - backend.yaml
+  - namespace.yaml
+  - ingress.yaml
+  - mysql-service.yaml
+  - mysql-deployment.yaml
